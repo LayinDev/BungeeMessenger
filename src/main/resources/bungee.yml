@@ -1,0 +1,20 @@
+name: BungeeMessenger
+version: @version@
+main: bungeemessenger.xyz.equinoxdev.xyz.BMSGR
+description: Feature Rich Messaging Plugin For Bungeecord Proxies
+commands:
+  msg:
+    description: "Message a player on the network"
+    usage: "/<command> <player> <message>"
+  r:
+    description: "Replies to a player on the network"
+    usage: "/<command> <message>"
+  ignore:
+    description: "Toggles whether you are able to receive messages"
+    usage: "/<command> [player]"
+  msghelp:
+    description: "Shows the help menu of the plugin!"
+    usage: "/<command>"
+  msgreload:
+    description: "Reloads the plugin's config file"
+    usage: "/<command>"

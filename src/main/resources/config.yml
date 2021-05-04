@@ -1,0 +1,43 @@
+# Thank you for downloading BungeeMessenger! If you experience any issues
+# or need any support for it, feel free to contact me on the following sites:
+# MCMarket: LayinDev
+# Spigot: TrueCodeEx
+# Discord: Peter S.#7172
+
+permissions:
+  use: "bmsgr.use" # This is what allows your users to use the plugin's features!
+  reload: "bsmgr.reload" # This is what reloads the config file of the plugin!
+
+# Change how you want users to see the messages on the server! Color Codes Supported!
+# Placeholders: <receiver> | <sender> | <message> (You can use it on both formats!)
+format:
+  sender: "&8(&bMe -> <receiver>&8) &f<message>"
+  receiver: "&8(&b<sender> -> Me&8) &f<message>"
+
+# Edit any of the messages used by the plugin! Color Codes Supported!
+messages:
+  noPermission: "&cYou do not have permission to use this command!"
+  userNotOnline: "&4This user is not online!"
+  reload: "&aBungeeMessenger has been reloaded!"
+  playerOnly: "&cThis command is a player only feature!"
+  missingPlayer: "&cPlease mention player on who you want to message!"
+  missingMessage: "&cPlease specify what message you want to tell the user!"
+  disabledMessages: "&cThis player has disabled their messages!"
+  noUserReply: "&cYou do not have anyone to reply to!"
+  messagesOn: "&aYou have enabled your messages!"
+  messagesOff: "&cYou have disabled your messages!"
+  ignoredUser: "&aSuccessfully ignored that user!"
+  allowedUser: "&aRemoved that user from your ignored list!"
+  selfMessage: "&cYou cannot message yourself!"
+  selfIgnore: "&cYou cannot ignore yourself!"
+  helpMessage:
+    - '&8&m----+------------{&r &b&lBungeeMessenger &r&8&m}------------+----'
+    - ''
+    - '&b/msg <player> <message> &7- Messages a player on the network.'
+    - '&b/r <message> &7- Replies to the last user that messaged you.'
+    - '&b/ignore [player] &7- Blocks a user from messaging you.'
+    - '&b/ignore &7- Toggles your messages.'
+    - '&b/msgreload &7- Reloads the configuration.'
+    - '&b/msghelp &7- Displays the help menu.'
+    - ''
+    - '&8&m----+------------------------------------------+----'
