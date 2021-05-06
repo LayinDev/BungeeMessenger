@@ -5,15 +5,14 @@ import bungeemessenger.xyz.equinoxdev.xyz.ConfigManager;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
+import net.md_5.bungee.api.plugin.TabExecutor;
 import org.apache.commons.lang3.ArrayUtils;
 
 import javax.jws.HandlerChain;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
-public class ignoreCommand extends Command {
+public class ignoreCommand extends Command implements TabExecutor {
 
     public ignoreCommand(){
         super("ignore");
@@ -75,24 +74,22 @@ public class ignoreCommand extends Command {
                 return;
             }
             HashMap<ProxiedPlayer, List<ProxiedPlayer>> ignored = BMSGR.getIgnoredPlayers();
+            List<ProxiedPlayer> players;
             if(!ignored.containsKey(author)){
-
-                List<ProxiedPlayer> players = new ArrayList<>();
+                players = new ArrayList<>();
                 players.add(target);
                 ignored.put(author, players);
                 author.sendMessage(cm.getString("messages.ignoredUser"));
-                return;
 
             } else {
 
-                List<ProxiedPlayer> players = ignored.get(author);
+                players = ignored.get(author);
                 if(!players.contains(target)){
 
                     players.add(target);
                     ignored.remove(author);
                     ignored.put(author, players);
                     author.sendMessage(cm.getString("messages.ignoredUser"));
-                    BMSGR.getInstance().getLogger().info(players.toString());
 
                 } else {
 
@@ -100,15 +97,28 @@ public class ignoreCommand extends Command {
                     ignored.remove(author);
                     ignored.put(author, players);
                     author.sendMessage(cm.getString("messages.allowedUser"));
-                    BMSGR.getInstance().getLogger().info(players.toString());
 
                 }
-                return;
 
             }
+            return;
 
         }
 
 
     }
+
+    @Override
+    public Iterable<String> onTabComplete(CommandSender sender, String[] args){
+
+        if(args.length <= 0){
+            return Collections.emptyList();
+        }
+        List<ProxiedPlayer> players = BMSGR.getInstance().getProxy().getPlayers().stream().filter(player -> player.getName().startsWith(args[0])).collect(Collectors.toList());
+        List<String> results = new ArrayList<>();
+        players.forEach(player -> results.add(player.getName()));
+        players.clear();
+        return results;
+    }
+
 }

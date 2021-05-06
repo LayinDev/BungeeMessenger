@@ -20,8 +20,6 @@ public final class BMSGR extends Plugin {
 
     private static BMSGR instance;
     private static ConfigManager cm;
-    private File file;
-    private static Configuration configuration;
     private static HashMap<ProxiedPlayer, ProxiedPlayer> messages = new HashMap<ProxiedPlayer, ProxiedPlayer>();
     private static HashMap<ProxiedPlayer, Boolean> status = new HashMap<ProxiedPlayer, Boolean>();
     private static HashMap<ProxiedPlayer, List<ProxiedPlayer>> ignoredPlayers = new HashMap<>();

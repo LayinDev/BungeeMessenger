@@ -5,12 +5,12 @@ import bungeemessenger.xyz.equinoxdev.xyz.ConfigManager;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
+import net.md_5.bungee.api.plugin.TabExecutor;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
-public class msgCommand extends Command {
+public class msgCommand extends Command implements TabExecutor {
 
     public msgCommand() {
         super("msg");
@@ -129,4 +129,18 @@ public class msgCommand extends Command {
         messages.put(receiver, author);
 
     }
+
+    @Override
+    public Iterable<String> onTabComplete(CommandSender sender, String[] args){
+
+        if(args.length <= 0){
+            return Collections.emptyList();
+        }
+        List<ProxiedPlayer> players = BMSGR.getInstance().getProxy().getPlayers().stream().filter(player -> player.getName().startsWith(args[0])).collect(Collectors.toList());
+        List<String> results = new ArrayList<>();
+        players.forEach(player -> results.add(player.getName()));
+        players.clear();
+        return results;
+    }
+
 }

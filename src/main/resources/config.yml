@@ -1,8 +1,11 @@
-# Thank you for downloading BungeeMessenger! If you experience any issues
-# or need any support for it, feel free to contact me on the following sites:
-# MCMarket: LayinDev
+# Thank you for using BungeeMessenger! If you experience any issues
+# or have any suggestions/features you want implemented into the plugin
+# feel free to join the support Discord Server!
+#
+# MC-Market: Peter JS.
 # Spigot: TrueCodeEx
-# Discord: Peter S.#7172
+# Discord: Peter S.#7172 | ID: 376308669576511500
+# Discord Server: https://discord.gg/K54SVef3Jf
 
 permissions:
   use: "bmsgr.use" # This is what allows your users to use the plugin's features!
